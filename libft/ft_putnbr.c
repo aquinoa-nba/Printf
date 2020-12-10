@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_processor.h                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/28 21:33:36 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/10 00:54:51 by aquinoa          ###   ########.fr       */
+/*   Created: 2020/12/08 21:06:09 by aquinoa           #+#    #+#             */
+/*   Updated: 2020/12/10 01:06:48 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PROCESSOR_H
-# define FT_PROCESSOR_H
+#include "../includes/libft.h"
 
-# include "ft_parser.h"
+void	ft_putnbr(long nb)
+{
+	static int		count;
 
-int		ft_c_type(t_list *list, va_list *ap);
-int		ft_s_type(t_list *list, va_list *ap);
-int		ft_d_type(t_list *list, va_list *ap);
-int		ft_u_type(t_list *list, va_list *ap);
-
-#endif
+	count = 0;
+	if (nb < 0)
+	{
+		nb *= -1;
+	}
+	if (nb >= 10)
+	{
+		count++;
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar((nb % 10) + '0');
+}

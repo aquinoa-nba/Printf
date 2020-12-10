@@ -6,7 +6,7 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 17:20:23 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/06 16:42:15 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/08 19:26:05 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		percent = check_format((char*)format);
-		if (format[percent] == '\0' || !(list = (t_list*)malloc(sizeof(t_list))))
+		if (format[percent] == '\0' || !(list = malloc(sizeof(t_list))))
 		{
 			va_end(ap);
 			break ;

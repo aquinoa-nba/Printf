@@ -6,28 +6,40 @@
 #    By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/28 21:33:40 by aquinoa           #+#    #+#              #
-#    Updated: 2020/12/06 20:00:21 by aquinoa          ###   ########.fr        #
+#    Updated: 2020/12/10 00:54:23 by aquinoa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libftprintf.a
+NAME			=	libftprintf.a
 
-SRCS		=	base/ft_printf.c \
-				parser/ft_flags_parser.c parser/ft_parser.c \
-				parser/ft_precision_parser.c parser/ft_width_parser.c \
-				processor/ft_c_type.c processor/ft_processor.c \
-				processor/ft_s_type.c
+SRCS_BASE		=	base/ft_printf.c
 
-OBJS		=	$(SRCS:%.c=%.o)
+SRCS_PARSER		=	parser/ft_flags_parser.c parser/ft_parser.c \
+					parser/ft_precision_parser.c parser/ft_width_parser.c
+
+SRCS_PROCESSOR	=	processor/ft_c_type.c processor/ft_processor.c \
+					processor/ft_s_type.c processor/ft_d_type.c processor/ft_u_type.c
+
+OBJS_1			=	$(OBJS_BASE) $(OBJS_PARSER) $(OBJS_PROCESSOR)
+
+OBJS_2			=	$(patsubst base/ft%.o, ft%.o, $(OBJS_BASE)) \
+					$(patsubst parser/ft%.o, ft%.o, $(OBJS_PARSER)) \
+					$(patsubst processor/ft%.o, ft%.o, $(OBJS_PROCESSOR))
+
+OBJS_BASE		=	$(SRCS_BASE:%.c=%.o)
+
+OBJS_PARSER		=	$(SRCS_PARSER:%.c=%.o)
+
+OBJS_PROCESSOR	=	$(SRCS_PROCESSOR:%.c=%.o)
 
 HEADERS		=	includes
 
 FLAGS		=	-Wall -Wextra -Werror
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS_1)
 				make -C libft
 				cp libft/libft.a $(NAME)
-				ar rc $@ $(patsubst %/, , $(OBJS))
+				ar rc $@ $(OBJS_2)
 
 all:			$(NAME)
 
@@ -36,7 +48,7 @@ all:			$(NAME)
 
 clean:
 				make -C libft clean
-				rm -f $(addprefix ../, $(OBJS))
+				rm -f $(OBJS_2)
 
 fclean:			clean
 				make -C libft fclean

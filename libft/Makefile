@@ -6,13 +6,13 @@
 #    By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/06 17:02:57 by aquinoa           #+#    #+#              #
-#    Updated: 2020/12/06 18:54:43 by aquinoa          ###   ########.fr        #
+#    Updated: 2020/12/08 22:02:32 by aquinoa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
 
-SRCS	=	ft_isdigit.c ft_putchar.c ft_strchar.c ft_strlen.c
+SRCS	=	ft_isdigit.c ft_putchar.c ft_strchar.c ft_strlen.c ft_putnbr.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 

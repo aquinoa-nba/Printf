@@ -6,11 +6,14 @@ int		main()
 	int		a;
 	int		b;
 
-//	i = 0;
+//	b = (char*)malloc(6);
+//	*b = 'h';
 //	a = ft_printf("content%%%%\n");
 //	b = printf("content%%%%\n");
-	a = printf("p->%-0*.*s<-\n\n", 5, 2, "abc");
-	b = ft_printf("f->%-*.*s<-\n\n", 5, 2, "abc");
+//	a = printf("p->%0-8.5d<-\n\n", 34);
+	a = printf("p->%u<-\n\n", 4294967295u);
+	b = ft_printf("f->%u<-\n\n", 4294967295u);
+//	b = ft_printf("f->%5d<-\n\n", 123);
 	printf("p->%d\n\n", a);
 	printf("f->%d\n\n", b);
 
