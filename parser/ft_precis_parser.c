@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_precision_parser.c                              :+:      :+:    :+:   */
+/*   ft_precis_parser.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 23:34:54 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/06 17:58:44 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/11 04:23:33 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_parser.h"
 
-int		ft_precision_parcer(t_list *list, char *str, va_list *ap)
+int		ft_precis_parcer(t_list *list, char *str, va_list *ap)
 {
 	int		count;
 

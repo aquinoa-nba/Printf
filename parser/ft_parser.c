@@ -6,7 +6,7 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 22:43:38 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/10 01:12:18 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/11 04:23:23 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_parser(char *str, va_list *ap, t_list *list)
 	if (str[parser_len] == '.')
 	{
 		parser_len++;
-		if (!(parser_len += ft_precision_parcer(list, str + parser_len, &(*ap))))
+		if (!(parser_len += ft_precis_parcer(list, str + parser_len, &(*ap))))
 			list->precision = 0;
 	}
 	else
