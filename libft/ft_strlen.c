@@ -6,7 +6,7 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 01:02:49 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/05 18:18:28 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 03:40:02 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ int		ft_strlen(char *str)
 {
 	int		len;
 
-	if (!str)
-		return (-1);
 	len = 0;
-	while (str[len] != '\0')
+	while (str[len])
 		len++;
 	return (len);
 }

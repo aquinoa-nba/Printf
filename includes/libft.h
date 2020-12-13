@@ -6,7 +6,7 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 21:33:49 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/11 04:15:05 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 03:31:43 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ typedef struct
 }			t_list;
 
 int			ft_isdigit(int c);
-char		*ft_itoa_base(unsigned int n, int base, t_list *list);
+char		*ft_itoa_base(long n, long base, t_list *list);
 void		ft_putchar(char c);
 void		ft_putstr(char *str);
 void		ft_putnbr(long nb);
 char		ft_strchar(char *str, char c);
+char		*ft_strjoin(char *str1, char *str2);
 int			ft_strlen(char *str);
 
 #endif

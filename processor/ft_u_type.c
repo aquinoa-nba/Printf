@@ -6,13 +6,13 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 20:17:37 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/10 01:17:35 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 06:49:09 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_processor.h"
 
-int		ft_number_len(long nb)
+int		ft_number_u_len(long nb)
 {
 	int		count;
 
@@ -37,7 +37,7 @@ int		ft_u_type(t_list *list, va_list *ap)
 	(list->precision == 0) ? (flag = 0) : (flag = 1);
 	print_len = 0;
 	nb = va_arg(*ap, unsigned int);
-	print_len = ft_number_len(nb);
+	print_len = ft_number_u_len(nb);
 	if (nb == 0 && list->precision == 0 && list->width == 0)
 		return (--print_len);
 	if (print_len < list->width)

@@ -6,7 +6,7 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 20:17:37 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/10 01:13:08 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 07:41:32 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,44 @@ int		ft_number_d_len(int nb)
 	return (count);
 }
 
+int		print_d(int nb, int print_len, t_list *list, int flag)
+{
+	if (list->flags == '-')
+	{
+		nb < 0 ? ft_putchar('-') : 0;
+		while (list->precision-- > 0 && ++print_len)
+			ft_putchar('0');
+		!nb && !flag ? ft_putchar(' ') : ft_putnbr(nb);
+		while (list->width-- > 0 && ++print_len)
+			ft_putchar(' ');
+	}
+	else if (list->flags == '0')
+	{
+		if (list->precision == -1)
+		{
+			list->precision = list->width;
+			list->width = 0;
+		}
+		while (list->width-- > 0 && ++print_len)
+			ft_putchar(' ');
+		nb < 0 ? ft_putchar('-') : 0;
+		while (list->precision-- > 0 && ++print_len)
+			ft_putchar('0');
+		!nb && !flag ? ft_putchar(' ') : ft_putnbr(nb);
+	}
+	else
+	{
+		while (list->width-- > 0 && ++print_len)
+			ft_putchar(' ');
+		nb < 0 ? ft_putchar('-') : 0;
+		list->width--;
+		while (list->precision-- > 0 && ++print_len)
+			ft_putchar('0');
+		!nb && !flag ? ft_putchar(' ') : ft_putnbr(nb);
+	}
+	return (print_len);
+}
+
 int		ft_d_type(t_list *list, va_list *ap)
 {
 	int		nb;
@@ -44,7 +82,7 @@ int		ft_d_type(t_list *list, va_list *ap)
 		list->width -= print_len;
 	else
 		list->width = 0;
-	if (print_len < list->precision)
+	if (print_len <= list->precision)
 	{
 		list->precision -= print_len;
 		nb < 0 ? list->precision++ : 0;
@@ -52,44 +90,48 @@ int		ft_d_type(t_list *list, va_list *ap)
 	}
 	else if (list->precision != -1)
 		list->precision = 0;
-	if (list->flags == '-')
-	{
-		nb < 0 ? ft_putchar('-') : 0;
-		while (list->precision-- > 0 && ++print_len)
-			ft_putchar('0');
-		if (!nb && !flag)
-			ft_putchar(' ');
-		else
-			ft_putnbr(nb);
-		while (list->width-- > 0 && ++print_len)
-			ft_putchar(' ');
-	}
-	else if (list->flags == '0')
-	{
-		if (list->precision == -1)
-		{
-			list->precision = list->width;
-			list->width = 0;
-		}
-		while (list->width-- > 0 && ++print_len)
-			ft_putchar(' ');
-		nb < 0 ? ft_putchar('-') : 0;
-		while (list->precision-- > 0 && ++print_len)
-			ft_putchar('0');
-		ft_putnbr(nb);
-	}
-	else
-	{
-		while (list->width-- > 0 && ++print_len)
-			ft_putchar(' ');
-		nb < 0 ? ft_putchar('-') : 0;
-		list->width--;
-		while (list->precision-- > 0 && ++print_len)
-			ft_putchar('0');
-		if (!nb && !flag)
-			ft_putchar(' ');
-		else
-			ft_putnbr(nb);
-	}
+	// if (list->flags == '-')
+	// {
+	// 	nb < 0 ? ft_putchar('-') : 0;
+	// 	while (list->precision-- > 0 && ++print_len)
+	// 		ft_putchar('0');
+	// 	if (!nb && !flag)
+	// 		ft_putchar(' ');
+	// 	else
+	// 		ft_putnbr(nb);
+	// 	while (list->width-- > 0 && ++print_len)
+	// 		ft_putchar(' ');
+	// }
+	// else if (list->flags == '0')
+	// {
+	// 	if (list->precision == -1)
+	// 	{
+	// 		list->precision = list->width;
+	// 		list->width = 0;
+	// 	}
+	// 	while (list->width-- > 0 && ++print_len)
+	// 		ft_putchar(' ');
+	// 	nb < 0 ? ft_putchar('-') : 0;
+	// 	while (list->precision-- > 0 && ++print_len)
+	// 		ft_putchar('0');
+	// 	if (!nb && !flag)
+	// 		ft_putchar(' ');
+	// 	else
+	// 		ft_putnbr(nb);
+	// }
+	// else
+	// {
+	// 	while (list->width-- > 0 && ++print_len)
+	// 		ft_putchar(' ');
+	// 	nb < 0 ? ft_putchar('-') : 0;
+	// 	list->width--;
+	// 	while (list->precision-- > 0 && ++print_len)
+	// 		ft_putchar('0');
+	// 	if (!nb && !flag)
+	// 		ft_putchar(' ');
+	// 	else
+	// 		ft_putnbr(nb);
+	// }
+	print_len = print_d(nb, print_len, list, flag);
 	return (print_len);
 }

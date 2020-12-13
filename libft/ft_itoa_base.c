@@ -6,60 +6,35 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 18:27:19 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/11 04:21:22 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 03:43:27 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_res(unsigned int nb, int base, char *str, t_list *list)
+char	*ft_itoa_base(long nb, long base, t_list *list)
 {
-	static int	i;
+	long		n;
+	int			nb_len;
+	char		*str;
 
-	if (nb >= 10)
-	{
-		if (base < 10)
-			ft_res(nb / base, base, str, list);
-		else
-		{
-			str[i] = list->type == 'x' ? nb + 87 : nb + 55;
-			i++;
-		}
-		return (0);
-	}
-	str[i] = nb + 48;
-	i++;
-	return (0);
-}
-
-void	ft_putnbr_base(unsigned int nb, int base, char *str, t_list *list)
-{
-	if (nb > (unsigned int)base)
-		ft_putnbr_base(nb / base, base, str, list);
-	ft_res(nb % base, base, str, list);
-}
-
-char	*ft_str(unsigned int nb, int base)
-{
-	char	*str;
-	int		len;
-
-	len = 1;
-	while (nb > (unsigned int)base)
-	{
+	n = nb;
+	nb_len = 1;
+	while (nb >= base && nb_len++)
 		nb /= base;
-		len++;
+	nb = n;
+	str = malloc(nb_len + 1);
+	str[nb_len] = '\0';
+	while (nb_len)
+	{
+		nb %= base;
+		if (base >= 10 && nb >= 10)
+			str[nb_len - 1] = (list->type == 'X' ? nb + 55 : nb + 87);
+		else
+			str[nb_len - 1] = nb + 48;
+		n /= base;
+		nb = n;
+		nb_len--;
 	}
-	str = malloc(len + 1);
-	str[len] = '\0';
-	return (str);
-}
-
-char	*ft_itoa_base(unsigned int nb, int base, t_list *list)
-{
-	char	*str;
-
-	str = ft_str(nb, base);
-	ft_putnbr_base(nb, base, str, list);
 	return (str);
 }

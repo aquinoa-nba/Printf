@@ -1,31 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_x_type.c                                        :+:      :+:    :+:   */
+/*   ft_p_type.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/10 19:42:34 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 02:31:10 by aquinoa          ###   ########.fr       */
+/*   Created: 2020/12/11 19:24:58 by aquinoa           #+#    #+#             */
+/*   Updated: 2020/12/13 02:58:30 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_processor.h"
 
-int		ft_x_type(t_list *list, va_list *ap)
+#include <stdio.h>
+
+int		ft_p_type(t_list *list, va_list *ap)
 {
-	unsigned int	nb;
+	long nb;
 	char			*nb_base;
 	int				print_len;
 	int				flag;
+	char			*tmp;
 
 	(list->precision == 0) ? (flag = 0) : (flag = 1);
 	print_len = 0;
-	nb = va_arg(*ap, unsigned int);
+	nb = va_arg(*ap, long);
 	nb_base = ft_itoa_base(nb, 16, list);
+	if (!nb)
+	{
+		if (list->precision == 0)
+			nb_base = ft_strjoin("0x", "");
+		else
+		{
+			tmp = nb_base;
+			nb_base = ft_strjoin("0x", tmp);
+			free(tmp);
+		}
+	}
+	else
+	{
+		tmp = nb_base;
+		nb_base = ft_strjoin("0x", tmp);
+		free(tmp);
+	}
 	print_len = ft_strlen(nb_base);
-	if (nb == 0 && list->precision == 0 && list->width == 0)
-		return (--print_len);
 	if (print_len < list->width)
 		list->width -= print_len;
 	else
@@ -72,10 +90,7 @@ int		ft_x_type(t_list *list, va_list *ap)
 		list->width--;
 		while (list->precision-- > 0 && ++print_len)
 			ft_putchar('0');
-		if (!nb && !flag)
-			ft_putchar(' ');
-		else
-			ft_putstr(nb_base);
+		ft_putstr(nb_base);
 	}
 	free(nb_base);
 	return (print_len);
