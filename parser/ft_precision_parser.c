@@ -6,13 +6,13 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 23:34:54 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 11:39:01 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 15:51:20 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/parser.h"
 
-int		ft_precis_parcer(t_list *list, char *str, va_list *ap)
+int		ft_precision_parser(t_list *list, char *str, va_list *ap)
 {
 	int		count;
 

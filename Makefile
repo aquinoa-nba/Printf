@@ -6,52 +6,38 @@
 #    By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/28 21:33:40 by aquinoa           #+#    #+#              #
-#    Updated: 2020/12/13 10:39:15 by aquinoa          ###   ########.fr        #
+#    Updated: 2020/12/13 18:09:00 by aquinoa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	libftprintf.a
+NAME		=	libftprintf.a
 
-SRCS_BASE		=	base/ft_printf.c
+SRCS		=	ft_printf.c ft_flags_parser.c ft_parser.c \
+				ft_precision_parser.c ft_width_parser.c ft_c_type.c \
+				ft_processor.c ft_s_type.c ft_d_type.c ft_u_type.c \
+				ft_x_type.c ft_p_type.c ft_print_width.c ft_print_precision.c \
 
-SRCS_PARSER		=	parser/ft_flags_parser.c parser/ft_parser.c \
-					parser/ft_precis_parser.c parser/ft_width_parser.c
-
-SRCS_PROCESSOR	=	processor/ft_c_type.c processor/ft_processor.c \
-					processor/ft_s_type.c processor/ft_d_type.c \
-					processor/ft_u_type.c processor/ft_x_type.c \
-					processor/ft_p_type.c processor/ft_print_width.c \
-					processor/ft_print_percision.c
-
-OBJS_1			=	$(OBJS_BASE) $(OBJS_PARSER) $(OBJS_PROCESSOR)
-
-OBJS_2			=	$(patsubst base/ft%.o, ft%.o, $(OBJS_BASE)) \
-					$(patsubst parser/ft%.o, ft%.o, $(OBJS_PARSER)) \
-					$(patsubst processor/ft%.o, ft%.o, $(OBJS_PROCESSOR))
-
-OBJS_BASE		=	$(SRCS_BASE:%.c=%.o)
-
-OBJS_PARSER		=	$(SRCS_PARSER:%.c=%.o)
-
-OBJS_PROCESSOR	=	$(SRCS_PROCESSOR:%.c=%.o)
+OBJS		=	$(SRCS:%.c=%.o)
 
 HEADERS		=	includes
 
 FLAGS		=	-Wall -Wextra -Werror
 
-$(NAME):		$(OBJS_1)
+VPATH		=	base parser processor
+
+$(NAME):		$(OBJS)
 				make -C libft
 				cp libft/libft.a $(NAME)
-				ar rc $@ $(OBJS_2)
+				ar rc $@ $(OBJS)
 
 all:			$(NAME)
 
-%.o:			%.c
+%.o:			%.c $(HEADERS)
 				gcc -c $(FLAGS) $< -I $(HEADERS)
 
 clean:
 				make -C libft clean
-				rm -f $(OBJS_2)
+				rm -f $(OBJS)
 
 fclean:			clean
 				make -C libft fclean
