@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags_parser.c                                  :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/06 17:54:53 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 11:38:51 by aquinoa          ###   ########.fr       */
+/*   Created: 2020/11/28 21:33:45 by aquinoa           #+#    #+#             */
+/*   Updated: 2020/12/13 11:38:04 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/parser.h"
+#ifndef PARSER_H
+# define PARSER_H
 
-int		ft_flags_parser(t_list *list, char *str)
-{
-	int		flags_length;
+# include "printf.h"
 
-	flags_length = 0;
-	if (*str == '-')
-		list->flags = '-';
-	else if (*str == '0')
-		list->flags = '0';
-	while (str[flags_length] == '-' || str[flags_length] == '0')
-		flags_length++;
-	return (flags_length);
-}
+int			ft_flags_parser(t_list *list, char *str);
+int			ft_precis_parcer(t_list *list, char *str, va_list *ap);
+int			ft_width_parcer(t_list *list, char *str, va_list *ap);
+int			ft_processor(t_list *list, va_list *ap);
+
+#endif

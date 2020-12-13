@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_processor.h                                     :+:      :+:    :+:   */
+/*   ft_print_percision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/28 21:33:36 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/11 20:16:28 by aquinoa          ###   ########.fr       */
+/*   Created: 2020/12/13 10:33:53 by aquinoa           #+#    #+#             */
+/*   Updated: 2020/12/13 11:39:25 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PROCESSOR_H
-# define FT_PROCESSOR_H
+#include "../includes/processor.h"
 
-# include "ft_parser.h"
-
-int		ft_c_type(t_list *list, va_list *ap);
-int		ft_s_type(t_list *list, va_list *ap);
-int		ft_d_type(t_list *list, va_list *ap);
-int		ft_u_type(t_list *list, va_list *ap);
-int		ft_x_type(t_list *list, va_list *ap);
-int		ft_p_type(t_list *list, va_list *ap);
-
-#endif
+int		ft_print_precision(t_list *list, int print_len)
+{
+	while (list->precision-- > 0 && ++print_len)
+		ft_putchar('0');
+	return (print_len);
+}

@@ -27,8 +27,8 @@ int		main()
 //	a = ft_printf("content%%%%\n");
 //	b = printf("content%%%%\n");
 //	a = printf("p->%0-8.5d<-\n\n", 34);
-	a = printf("p->%0*.3d<-\n\n", 5, 12);
-	b = ft_printf("f->%0*.3d<-\n\n", 5, 12);
+	a = printf("p->%5p<-\n\n", NULL);
+	b = ft_printf("f->%5p<-\n\n", NULL);
 //	b = printf("f->%05%<-\n\n");
 	printf("p->%d\n\n", a);
 	printf("f->%d\n\n", b);

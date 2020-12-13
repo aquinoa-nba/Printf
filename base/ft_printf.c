@@ -6,11 +6,11 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 17:20:23 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 02:48:15 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 11:38:44 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/printf.h"
 
 int		check_format(char *format)
 {

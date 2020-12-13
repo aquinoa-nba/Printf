@@ -6,11 +6,11 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 23:34:25 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 03:52:06 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 11:39:05 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_parser.h"
+#include "../includes/parser.h"
 
 int		ft_width_parcer(t_list *list, char *str, va_list *ap)
 {

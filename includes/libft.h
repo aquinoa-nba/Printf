@@ -6,7 +6,7 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 21:33:49 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 03:31:43 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 08:47:50 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct
 
 int			ft_isdigit(int c);
 char		*ft_itoa_base(long n, long base, t_list *list);
+int			ft_number_len(long nb);
 void		ft_putchar(char c);
 void		ft_putstr(char *str);
 void		ft_putnbr(long nb);

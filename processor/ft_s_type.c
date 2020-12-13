@@ -6,11 +6,11 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 16:19:01 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 05:23:39 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 11:39:38 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_processor.h"
+#include "../includes/processor.h"
 
 int		print_s(int s_len, int print_len, char *s, t_list *list)
 {

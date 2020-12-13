@@ -6,11 +6,11 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 19:37:19 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/11 22:28:17 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 11:39:33 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_processor.h"
+#include "../includes/processor.h"
 
 int		ft_processor(t_list *list, va_list *ap)
 {

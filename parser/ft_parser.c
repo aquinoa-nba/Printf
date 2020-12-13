@@ -6,11 +6,11 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 22:43:38 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 03:45:20 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/13 11:38:56 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_parser.h"
+#include "../includes/parser.h"
 
 int		ft_parser(char *str, va_list *ap, t_list *list)
 {

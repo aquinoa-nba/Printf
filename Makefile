@@ -6,7 +6,7 @@
 #    By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/28 21:33:40 by aquinoa           #+#    #+#              #
-#    Updated: 2020/12/11 20:18:12 by aquinoa          ###   ########.fr        #
+#    Updated: 2020/12/13 10:39:15 by aquinoa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS_PARSER		=	parser/ft_flags_parser.c parser/ft_parser.c \
 SRCS_PROCESSOR	=	processor/ft_c_type.c processor/ft_processor.c \
 					processor/ft_s_type.c processor/ft_d_type.c \
 					processor/ft_u_type.c processor/ft_x_type.c \
-					processor/ft_p_type.c
+					processor/ft_p_type.c processor/ft_print_width.c \
+					processor/ft_print_percision.c
 
 OBJS_1			=	$(OBJS_BASE) $(OBJS_PARSER) $(OBJS_PROCESSOR)
 
