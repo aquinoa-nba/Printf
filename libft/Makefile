@@ -6,14 +6,14 @@
 #    By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/06 17:02:57 by aquinoa           #+#    #+#              #
-#    Updated: 2020/12/13 18:06:52 by aquinoa          ###   ########.fr        #
+#    Updated: 2020/12/15 23:46:18 by aquinoa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
 
 SRCS	=	ft_isdigit.c ft_putchar.c ft_strchar.c ft_strlen.c ft_putnbr.c \
-			ft_itoa_base.c ft_putstr.c ft_strjoin.c ft_number_len.c
+			ft_itoa_base.c ft_putstr.c ft_strjoin.c ft_number_len.c ft_strdup.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 

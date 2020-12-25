@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_width.c                                   :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/13 10:32:56 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 11:39:29 by aquinoa          ###   ########.fr       */
+/*   Created: 2020/12/15 23:39:50 by aquinoa           #+#    #+#             */
+/*   Updated: 2020/12/16 17:05:32 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/processor.h"
+#include "../includes/libft.h"
 
-int		ft_print_width(t_list *list, int print_len)
+char	*ft_strdup(char *str)
 {
-	while (list->width-- > 0 && ++print_len)
-		ft_putchar(' ');
-	return (print_len);
+	int		len;
+	char	*new_str;
+
+	len = ft_strlen(str);
+	if (!(new_str = (char*)malloc(len + 1)))
+		return (NULL);
+	new_str[len] = '\0';
+	while (*str)
+		*new_str++ = *str++;
+	return (new_str - len);
 }

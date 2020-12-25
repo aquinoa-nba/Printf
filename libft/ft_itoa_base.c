@@ -6,7 +6,7 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 18:27:19 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 15:37:33 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/16 22:45:36 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	*ft_itoa_base(long nb, long base, t_list *list)
 	while (nb >= base && nb_len++)
 		nb /= base;
 	nb = n;
-	str = malloc(nb_len + 1);
+	if (!(str = (char*)malloc(nb_len + 1)))
+		return (NULL);
 	str[nb_len] = '\0';
 	while (nb_len)
 	{

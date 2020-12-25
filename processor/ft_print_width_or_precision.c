@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_precision.c                               :+:      :+:    :+:   */
+/*   ft_print_width_or_precision.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/13 10:33:53 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 15:45:54 by aquinoa          ###   ########.fr       */
+/*   Created: 2020/12/13 10:32:56 by aquinoa           #+#    #+#             */
+/*   Updated: 2020/12/25 18:41:01 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/processor.h"
 
-int		ft_print_precision(t_list *list, int print_len)
+void	ft_print_width(t_list *list)
 {
-	while (list->precision-- > 0 && ++print_len)
+	while (list->width-- > 0 && ++list->print_len)
+		list->flags == '0' ? ft_putchar('0') : ft_putchar(' ');
+}
+
+void	ft_print_precision(t_list *list)
+{
+	while (list->precision-- > 0 && ++list->print_len)
 		ft_putchar('0');
-	return (print_len);
 }

@@ -6,17 +6,16 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 23:34:25 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 15:47:46 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/15 14:33:46 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/parser.h"
 
-int		ft_width_parser(t_list *list, char *str, va_list *ap)
+void	ft_width_parser(t_list *list, char *str, va_list *ap)
 {
 	int		count;
 
-	list->width = 0;
 	count = 0;
 	if (str[count] == '*')
 	{
@@ -26,12 +25,12 @@ int		ft_width_parser(t_list *list, char *str, va_list *ap)
 			list->flags = '-';
 			list->width *= -1;
 		}
-		return (1);
+		list->parser_len++;
 	}
 	while (ft_isdigit(str[count]))
 	{
 		list->width = list->width * 10 + str[count] - 48;
 		count++;
 	}
-	return (count);
+	list->parser_len += count;
 }

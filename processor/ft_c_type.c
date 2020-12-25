@@ -6,7 +6,7 @@
 /*   By: aquinoa <aquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:27:50 by aquinoa           #+#    #+#             */
-/*   Updated: 2020/12/13 15:52:10 by aquinoa          ###   ########.fr       */
+/*   Updated: 2020/12/16 17:27:57 by aquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,19 @@
 int		ft_c_type(t_list *list, va_list *ap)
 {
 	char	c;
-	int		print_len;
 
-	if (list->type == '%')
-		c = '%';
-	else
-		c = va_arg(*ap, int);
-	print_len = 0;
+	c = va_arg(*ap, int);
+	list->width--;
 	if (list->flags == '-')
 	{
 		ft_putchar(c);
-		while (--list->width > 0 && ++print_len)
-			ft_putchar(' ');
+		ft_print_width(list);
 	}
 	else
 	{
-		while (--list->width > 0 && ++print_len)
-			ft_putchar(' ');
+		ft_print_width(list);
 		ft_putchar(c);
 	}
-	print_len++;
-	return (print_len);
+	list->print_len++;
+	return (1);
 }
